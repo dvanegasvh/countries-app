@@ -4,17 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Server = void 0;
-require("module-alias/register");
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 // Routes
-const countries_1 = require("./routes/countries");
+const countries_route_1 = require("./routes/countries.route");
 dotenv_1.default.config();
 class Server {
     constructor() {
         this.port = process.env.APP_PORT || 3000;
-        this.countriesRoute = new countries_1.CountriesRoute();
+        this.countriesRoute = new countries_route_1.CountriesRoutes();
         this.app = (0, express_1.default)();
         this.app.set("port", process.env.APP_PORT || "3000");
     }
