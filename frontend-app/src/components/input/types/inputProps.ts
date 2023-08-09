@@ -1,12 +1,13 @@
 import React, { HtmlHTMLAttributes } from 'react';
 
-type SelectOptions = {
+export type SelectOptions = {
     value: string;
     label: string;
 };
 
 export interface InputProps extends React.ComponentProps<'input'> {
     withIcon?: boolean;
+    onChangeInput: (value: string) => void;
 }
 
 export interface ISelectProps extends React.ComponentProps<'select'> {

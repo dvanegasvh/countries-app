@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  font-size: 14px;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  body {
+    @apply dark:bg-dark-blue-darkness bg-light-gray dark:text-light-gray text-light-blue-dark;
+  }
+
+  .custom-shadow {
+    @apply shadow-custom dark:shadow-custom-dark
+  }
 }

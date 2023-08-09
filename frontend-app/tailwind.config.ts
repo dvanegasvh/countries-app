@@ -6,6 +6,7 @@ const config: Config = {
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
@@ -28,7 +29,8 @@ const config: Config = {
                 xl: '1280px',
             },
             boxShadow: {
-                button: '0.0625rem 0.125rem 0.3125rem 0 rgba(69, 68, 68, 0.5);',
+                custom: '0.0625rem 0.125rem 0.3125rem 0 rgba(69, 68, 68, 0.5)',
+                'custom-dark': '0.0625rem 0.125rem 0.3125rem 0 rgba(0, 0, 0, 0.5)',
             },
         },
     },
