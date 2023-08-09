@@ -15,4 +15,5 @@ export interface CountriesResponse {
     flag: string;
     languages: string[];
     characteristics?: Characteristics[];
+    native_names: string[];
 }

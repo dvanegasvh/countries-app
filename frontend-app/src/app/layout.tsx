@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={`${nunito.className} bg-light-gray max-w-[2560px] m-auto`}>
             <body>
                 <Navbar />
-                <div className="px-8 sm:px-20">
+                <div className="px-8 sm:px-20 max-w-[1920px] m-auto">
                     <Providers>{children}</Providers>
                 </div>
             </body>

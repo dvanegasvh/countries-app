@@ -1,19 +1,25 @@
 'use client';
-import { Button } from '@/components/button';
+import { useEffect } from 'react';
 import { Card } from '@/components/card';
 import { Input, SelectInput } from '@/components/input';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { getCountries } from '@/redux/countries/countries.slice';
-import { useEffect } from 'react';
+import { getCountries, setCountryInformation } from '@/redux/countries/countries.slice';
+import { CountriesResponse } from '@/types/countries';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
     const dispatch = useAppDispatch();
-    const { countries } = useAppSelector(state => state.countries);
+    const router = useRouter();
+    const { countries, countryInformation } = useAppSelector(state => state.countries);
+
     useEffect(() => {
         dispatch(getCountries());
     }, []);
 
-    console.log(countries);
+    const handleCLickCard = (country: CountriesResponse): void => {
+        dispatch(setCountryInformation(country));
+        router.push(`/details`);
+    };
 
     return (
         <main className="">
@@ -26,13 +32,14 @@ export default function Home() {
                 />
             </section>
 
-            <section className="grid gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-22 xl:grid-cols-4 xl:gap-48">
-                {countries?.map((country, index) => (
+            <section className="grid gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-22 xl:grid-cols-4 xl:gap-32">
+                {countries?.map(country => (
                     <Card
                         key={country.name}
                         title={country.name}
                         characteristics={country.characteristics || []}
                         image={country.flag}
+                        onClick={(): void => handleCLickCard(country)}
                     />
                 ))}
             </section>

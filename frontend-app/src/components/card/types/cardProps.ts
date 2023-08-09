@@ -1,7 +1,8 @@
-import { Characteristics } from '@/types/countries';
+import { Characteristics, CountriesResponse } from '@/types/countries';
 
 export interface CardProps {
     title: string;
     characteristics: Characteristics[];
     image: string;
+    onClick: () => void;
 }

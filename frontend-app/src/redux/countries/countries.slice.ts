@@ -1,8 +1,12 @@
 import { CountriesResponse } from '@/types/countries';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { CountriesTitles, initialState } from './types';
+import { AppThunk } from '../store';
 
-const initialState: { countries: CountriesResponse[] } = {
+const initialState: initialState = {
     countries: [],
+    countryInformation: {} as CountriesResponse,
+    countryBorders: [],
 };
 
 const countriesSlice = createSlice({
@@ -12,44 +16,63 @@ const countriesSlice = createSlice({
         setCountries: (state, action) => {
             state.countries = action.payload;
         },
-    },
-
-    extraReducers(builder) {
-        builder.addCase(getCountries.fulfilled, (state, action) => {
-            const countries = action.payload.map((country: CountriesResponse) => {
-                return {
-                    ...country,
-                    characteristics: [
-                        {
-                            title: 'Population',
-                            description: country.population.toLocaleString(),
-                        },
-                        {
-                            title: 'Region',
-                            description: country.region,
-                        },
-                        {
-                            title: 'Capital',
-                            description: country.capital,
-                        },
-                    ],
-                };
-            });
-            state.countries = countries;
-        });
+        setCountryInformation: (state, action) => {
+            state.countryInformation = action.payload;
+        },
+        setCountryBorders: (state, action) => {
+            state.countryBorders = action.payload;
+        },
     },
 });
 
-export const getCountries = createAsyncThunk('countries/all', async () => {
+export const getCountries = (): AppThunk => async dispatch => {
     try {
-        const response = await fetch('http://localhost:4000/countries/all');
+        const response = await fetch(`${process.env.API_URL}/countries/all`);
         const data = await response.json();
-        return data;
+        const countries = data?.map((country: CountriesResponse) => {
+            return {
+                ...country,
+                characteristics: [
+                    {
+                        title: CountriesTitles.POPULATION,
+                        description: country.population.toLocaleString(),
+                    },
+                    {
+                        title: CountriesTitles.REGION,
+                        description: country.region,
+                    },
+                    {
+                        title: CountriesTitles.CAPITAL,
+                        description: country.capital,
+                    },
+                ],
+            };
+        });
+
+        dispatch(setCountries(countries));
     } catch (error) {
         console.log(error);
     }
-});
+};
 
-export const { setCountries } = countriesSlice.actions;
+export const getBorders =
+    (acronyms: string[]): AppThunk =>
+    async dispatch => {
+        try {
+            const response = await fetch(`${process.env.API_URL}/countries/borders`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ acronyms }),
+            });
+            const data = await response.json();
+            dispatch(setCountryBorders(data));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+export const { setCountries, setCountryBorders, setCountryInformation } = countriesSlice.actions;
 
 export default countriesSlice.reducer;
