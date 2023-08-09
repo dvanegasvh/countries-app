@@ -1,7 +1,4 @@
-type Characteristics = {
-    title: string;
-    description: string;
-};
+import { Characteristics } from '@/types/countries';
 
 export interface CardProps {
     title: string;
