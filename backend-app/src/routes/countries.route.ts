@@ -9,7 +9,7 @@ export class CountriesRoutes {
     }
 
     public routes(app: Application): void {
-        app.route("/countries").get(this.countriesController.getAllCountries);
+        app.route("/countries/all").get(this.countriesController.getAllCountries);
         app.route("/countries/borders").post(this.countriesController.getBordersNames);
     }
 }
