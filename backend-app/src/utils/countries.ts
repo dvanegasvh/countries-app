@@ -6,7 +6,7 @@ import { Country, CountryIndex, CountryResponseApi } from "../types/countries";
  * @returns
  */
 export const formatAllCountries = (countries: CountryResponseApi[]): Country[] => {
-    return countries.slice(0, 10).map((country) => {
+    return countries?.map((country) => {
         return {
             name: country.name.common,
             native_names: Object.values(country.name.nativeName).map(({ common }) => common),
@@ -17,7 +17,7 @@ export const formatAllCountries = (countries: CountryResponseApi[]): Country[] =
             currencies: Object.values(country.currencies).map(({ name }) => name),
             top_level: country.tld[CountryIndex.FIRST_POSITION],
             borders: country.borders,
-            flag: country.flags.png,
+            flag: country.flags.svg,
             languages: Object.values(country.languages),
         };
     });

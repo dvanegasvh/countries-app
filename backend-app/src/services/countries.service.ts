@@ -26,13 +26,13 @@ export class CountriesService {
 
             return { status: 200, data: formatAllCountries(countries) };
         } catch (error) {
-            console.log(error);
             return { status: 500, data: error as Error };
         }
     };
 
     public getBordersNames = async (acronyms: string[]): Promise<ResponseObject<string[]>> => {
         try {
+            if (!acronyms.length) return { status: 200, data: [] };
             const response = await fetch(urls.countries.getBordersNames(acronyms));
             const borders = await response.json();
 

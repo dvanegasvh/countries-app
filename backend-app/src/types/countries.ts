@@ -35,6 +35,7 @@ export interface Country {
     borders: string[];
     flag: string;
     languages: string[];
+    native_names: string[];
 }
 
 export interface CountryResponseApi {
