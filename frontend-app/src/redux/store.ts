@@ -5,7 +5,7 @@ export const store = configureStore({
     reducer: {
         countries: countriesReducer,
     },
-    // devTools: true,
+    devTools: true,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

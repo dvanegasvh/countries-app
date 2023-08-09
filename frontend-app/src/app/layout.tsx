@@ -1,4 +1,5 @@
-// import "./globals.css";
+import { Navbar } from '@/components/navbar';
+import './globals.css';
 import { Providers } from '@/redux/provider';
 import { Nunito_Sans } from 'next/font/google';
 
@@ -13,9 +14,12 @@ const nunito = Nunito_Sans({
 });
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={`${nunito.className} bg-light-gray`}>
+        <html lang="en" className={`${nunito.className} bg-light-gray max-w-[2560px] m-auto`}>
             <body>
-                <Providers>{children}</Providers>
+                <Navbar />
+                <div className="px-8 sm:px-20">
+                    <Providers>{children}</Providers>
+                </div>
             </body>
         </html>
     );

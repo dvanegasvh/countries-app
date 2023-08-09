@@ -27,6 +27,9 @@ const config: Config = {
                 lg: '1024px',
                 xl: '1280px',
             },
+            boxShadow: {
+                button: '0.0625rem 0.125rem 0.3125rem 0 rgba(69, 68, 68, 0.5);',
+            },
         },
     },
     plugins: [],
