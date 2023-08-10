@@ -1,10 +1,8 @@
 'use client';
-
-import { Card } from '../card';
-import { Input, SelectInput } from '../input';
+import { Card } from '@/components/card';
+import { Input, SelectInput } from '@/components/input';
 import { getRegionsOptions } from '@/utils/options';
 import { useHome } from './hooks/useHome';
-import Link from 'next/link';
 
 export const HomePage: React.FC = () => {
     const { countries, handleClickCard, handleOnChangeInput, handleOnChangeSelect } = useHome();
@@ -20,7 +18,10 @@ export const HomePage: React.FC = () => {
                 />
             </section>
 
-            <section className="grid gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-22 xl:grid-cols-4 xl:gap-32">
+            <section
+                className="grid gap-y-10 sm:grid-cols-2 sm:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-22 xl:grid-cols-4 xl:gap-32"
+                data-testid="cards-container"
+            >
                 {countries?.map(country => (
                     <Card
                         key={country.name}

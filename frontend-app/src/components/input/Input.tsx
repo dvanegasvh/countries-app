@@ -26,6 +26,7 @@ export const SelectInput: React.FC<ISelectProps> = ({ placeholder, onChangeSelec
             onClick={(): void => {
                 setIsOpen(!isOpen);
             }}
+            data-testid="select-input"
         >
             <div className="flex items-center gap-x-5 w-full justify-between cursor-pointer">
                 <span>{selected ? selected : placeholder}</span>
