@@ -14,7 +14,7 @@ const Details: React.FC = () => {
                     alt="flag-image"
                     className="h-[15rem] sm:h-[35rem]  lg:w-full xl:h-[40rem] xl:w-[48%] object-cover"
                 />
-                <div className="mt-16 w-full sm:max-w-[50rem]">
+                <div className="mt-16 w-full sm:max-w-[55rem]">
                     <h1 className="text-[30px] font-bold mb-8">{countryInformation?.name}</h1>
                     <div className="flex flex-col sm:flex-row sm:gap-x-44 item">
                         <ul className="flex flex-col gap-y-5">
@@ -54,8 +54,8 @@ const Details: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="sm:flex mt-16">
-                        <span className="text-[16px]font-semibold mr-5">Border Countries:</span>
+                    <div className="sm:flex mt-16 items-center">
+                        <span className="text-[16px] font-semibold mr-5">Border Countries:</span>
                         <div className="grid grid-cols-3 gap-x-3 gap-y-3 mt-3 sm:mt-0">
                             {countryBorders.length ? (
                                 <>
@@ -69,7 +69,9 @@ const Details: React.FC = () => {
                                     ))}
                                 </>
                             ) : (
-                                <div className="shadow-md py-2 px-5 rounded-md text-center ">No border countries</div>
+                                <div className="shadow-md py-2 px-5 rounded-md text-center dark:bg-dark-blue-dark">
+                                    No border countries
+                                </div>
                             )}
                         </div>
                     </div>
