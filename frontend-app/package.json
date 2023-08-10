@@ -27,6 +27,7 @@
 		"typescript": "5.1.6"
 	},
 	"devDependencies": {
+		"@flydotio/dockerfile": "^0.4.3",
 		"@types/redux-persist": "^4.3.1",
 		"@typescript-eslint/parser": "^6.3.0",
 		"eslint-config-prettier": "^9.0.0",
