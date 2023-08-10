@@ -1,3 +1,6 @@
+<div align="center">
+  <img alt="Logo" src="https://github.com/dvanegasvh/countries-app/assets/111206893/eb1b18a6-fca0-407e-8274-340ee8ceb4d9" width="350" />
+</div>
 <h1 align="center">
 	Countries app challenge
 </h1>
@@ -16,31 +19,29 @@ Bia project challenge about countries where you can find any country and view it
 - Express
 - TailwindCSS
 - Redux Toolkit
+- Jest
 
 # Features
 | Feature  | Done  |
 | ------------ | ------------ |
 | Own API  |✅ |
 | Dark Mode  |✅|
+| Front testing  |✅|
 | Search by country |✅|
 | Search by country / region  | ✅ |
 
 # Architecture and organization
-### Project
+### Project:
 I wanted to use a frontend architecture based on Clean Architecture and try to use the SOLID Principle especially the Simple Responsibility because I really like to have the whole application componetized and try not to use global files when it is not necessary besides not having functions with a lot of things to do I also prefer to extract the logic of the components out of it, for that I used custom hooks.
 
-### Version control
+### Version control:
 For this case I selected a monrepo to host all the code of both the frontend and the backend, separating them into two independent folders.
 
 # Why did I create an api?
 Firstly because I find the code cleaner from the frontend, also I can have all the data ready to use and also because I like the backend ⭐
 
-# Somethings to improve
-- Better error handling
-- Implement cache in the API to improve the request time
-- Implement strong CI/CD
-- Compositeize much more the css in tailwind
-## 🛠 Installation & Set Up
+
+# Installation & Set Up
 
 1. Install dependencies from proyect root
    ```sh
@@ -52,7 +53,7 @@ Firstly because I find the code cleaner from the frontend, also I can have all t
    npm install
    ```
 
-3. Run local project
+2. Run local project
 
    ```sh
    cd frontend-app
@@ -62,7 +63,18 @@ Firstly because I find the code cleaner from the frontend, also I can have all t
    cd backend-app
    npm run dev
    ```
+2. Run tests
 
+   ```sh
+   cd frontend-app
+   npm run test
+   ```
+
+  # Somethings to improve
+- Better error handling
+- Implement cache in the API to improve the request time
+- Implement strong CI/CD
+- Create api tests
 
 # Resources
 
