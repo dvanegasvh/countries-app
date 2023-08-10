@@ -7,7 +7,7 @@
 
 # Introduction
 Bia project challenge about countries where you can find any country and view its details in an easy way additional features like an own API and dark mode built with TypeScript stack.
- **Deployed here: **<a href="https://countries-85cxqlzya-davvidsd.vercel.app" target="_blank">countries-85cxqlzya-davvidsd.vercel.app</a> 
+ **Deployed here:** <a href="https://countries-85cxqlzya-davvidsd.vercel.app" target="_blank">countries-85cxqlzya-davvidsd.vercel.app</a> 
 
 # Technologies
 - TypeScript
