@@ -1,0 +1,28 @@
+export const MOCK_DATA = [
+    {
+        name: 'Saudi Arabia',
+        native_names: ['العربية السعودية'],
+        population: 34813867,
+        region: 'Asia',
+        subregion: 'Western Asia',
+        capital: 'Riyadh',
+        currencies: ['Saudi riyal'],
+        top_level: '.sa',
+        borders: ['IRQ', 'JOR', 'KWT', 'OMN', 'QAT', 'ARE', 'YEM'],
+        flag: 'https://flagcdn.com/sa.svg',
+        languages: ['Arabic'],
+    },
+    {
+        name: 'Cameroon',
+        native_names: ['Cameroon', 'Cameroun'],
+        population: 26545864,
+        region: 'Africa',
+        subregion: 'Middle Africa',
+        capital: 'Yaoundé',
+        currencies: ['Central African CFA franc'],
+        top_level: '.cm',
+        borders: ['CAF', 'TCD', 'COG', 'GNQ', 'GAB', 'NGA'],
+        flag: 'https://flagcdn.com/cm.svg',
+        languages: ['English', 'French'],
+    },
+];
