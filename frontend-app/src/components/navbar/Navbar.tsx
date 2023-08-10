@@ -20,12 +20,12 @@ export const Navbar: React.FC = () => {
                 <div>
                     <h1 className="text-[16px] sm:text-[28px] font-bold">Where in the world?</h1>
                 </div>
-                <div className="flex items-center gap-x-3 cursor-pointer">
+                <div
+                    className="flex items-center gap-x-3 cursor-pointer"
+                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                >
                     <DarkModeIcon className="h-[14px] w-[14px] sm:h-[18px] sm:w-[18px] -mt-[4px]" />
-                    <span
-                        className="text-[14px] sm:text-[18px] font-semibold"
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    >
+                    <span className="text-[14px] sm:text-[18px] font-semibold">
                         {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
                     </span>
                 </div>

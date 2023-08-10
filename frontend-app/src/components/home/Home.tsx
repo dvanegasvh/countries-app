@@ -4,6 +4,7 @@ import { Card } from '../card';
 import { Input, SelectInput } from '../input';
 import { getRegionsOptions } from '@/utils/options';
 import { useHome } from './hooks/useHome';
+import Link from 'next/link';
 
 export const HomePage: React.FC = () => {
     const { countries, handleClickCard, handleOnChangeInput, handleOnChangeSelect } = useHome();

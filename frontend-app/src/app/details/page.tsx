@@ -1,39 +1,26 @@
 'use client';
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { Button } from '@/components/button';
-import { getBorders } from '@/redux/countries/countries.slice';
-import { Routes } from '@/types/general';
+import { useDetails } from './hooks/useDetails';
 
-const Page: React.FC = () => {
-    const { countryInformation, countryBorders } = useAppSelector(state => state.countries);
-    const dispatch = useAppDispatch();
-    const router = useRouter();
-
-    useEffect(() => {
-        dispatch(getBorders(countryInformation?.borders));
-    }, []);
+const Details: React.FC = () => {
+    const { countryBorders, countryInformation, handleBack } = useDetails();
 
     return (
-        <main>
-            <header className="mb-20">
-                <Button onClick={(): void => router.push(Routes.HOME)}>Back</Button>
-            </header>
-            <section className="flex flex-col md:flex-col xl:flex-row lg:justify-between gap-x-10 items-center">
+        <section>
+            <Button onClick={handleBack}>Back</Button>
+            <div className="flex flex-col md:flex-col xl:flex-row gap-x-32 justify-between mt-10 sm:mt-20">
                 <img
                     src={countryInformation?.flag}
                     alt="flag-image"
-                    className="lg:h-[35rem] lg:w-full xl:h-[35rem] xl:w-[50rem]  object-cover"
+                    className="h-[15rem] sm:h-[35rem]  lg:w-full xl:h-[40rem] xl:w-[48%] object-cover"
                 />
-                <div className="mt-16">
+                <div className="mt-16 w-full sm:max-w-[50rem]">
                     <h1 className="text-[30px] font-bold mb-8">{countryInformation?.name}</h1>
                     <div className="flex flex-col sm:flex-row sm:gap-x-44 item">
                         <ul className="flex flex-col gap-y-5">
                             <li>
                                 <span className="text-[16px] font-semibold mr-2">Native Name:</span>
-                                <span className="text-[16px]">{countryInformation?.native_names.join(', ')}</span>
+                                <span className="text-[16px]">{countryInformation?.native_names?.join(', ')}</span>
                             </li>
                             <li>
                                 <span className="text-[16px] font-semibold mr-2">Population:</span>
@@ -59,23 +46,23 @@ const Page: React.FC = () => {
                             </li>
                             <li>
                                 <span className="text-[16px] font-semibold mr-2">Currencies:</span>
-                                <span className="text-[16px]">{countryInformation?.currencies.join(', ')}</span>
+                                <span className="text-[16px]">{countryInformation?.currencies?.join(', ')}</span>
                             </li>
                             <li>
                                 <span className="text-[16px] font-semibold mr-2">Languages:</span>
-                                <span className="text-[16px]">{countryInformation?.languages.join(', ')}</span>
+                                <span className="text-[16px]">{countryInformation?.languages?.join(', ')}</span>
                             </li>
                         </ul>
                     </div>
-                    <div className={`sm:flex mt-16 ${countryBorders.length <= 3 && 'items-center'}`}>
-                        <span className="text-[16px] font-semibold mr-5">Border Countries:</span>
+                    <div className="sm:flex mt-16">
+                        <span className="text-[16px]font-semibold mr-5">Border Countries:</span>
                         <div className="grid grid-cols-3 gap-x-3 gap-y-3 mt-3 sm:mt-0">
                             {countryBorders.length ? (
                                 <>
                                     {countryBorders.map(border => (
                                         <div
                                             key={border}
-                                            className="shadow-md py-2 px-5 rounded-md flex justify-center items-center text-center dark:bg-dark-blue-dark"
+                                            className="shadow-md py-3 sm:py2 sm:px-5 rounded-md flex justify-center items-center text-center dark:bg-dark-blue-dark"
                                         >
                                             {border}
                                         </div>
@@ -87,9 +74,9 @@ const Page: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
     );
 };
 
-export default Page;
+export default Details;
