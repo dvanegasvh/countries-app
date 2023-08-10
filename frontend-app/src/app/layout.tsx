@@ -3,6 +3,7 @@ import { Navbar } from '@/components/navbar';
 import { Providers } from '@/redux/provider';
 import { Nunito_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
+import { LayoutContainer } from '@/components/layout-container';
 import './globals.css';
 
 const nunito = Nunito_Sans({
@@ -14,12 +15,18 @@ const nunito = Nunito_Sans({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className={nunito.className} suppressHydrationWarning={true}>
+            <head>
+                <meta charSet="utf-8" />
+                <meta name="description" content="A simple project to showcase my skills" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Countries challenge</title>
+            </head>
             <body>
                 <ThemeProvider attribute="class" defaultTheme="light">
-                    <Navbar />
-                    <div className="px-8 sm:px-20 max-w-[1920px] m-auto mt-40 sm:48 pb-20 ">
-                        <Providers>{children}</Providers>
-                    </div>
+                    <Providers>
+                        <Navbar />
+                        <LayoutContainer>{children}</LayoutContainer>
+                    </Providers>
                 </ThemeProvider>
             </body>
         </html>

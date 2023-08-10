@@ -34,17 +34,21 @@ export const useHome = (): {
         setRegion(value);
     };
 
+    const normalizeString = (str: string): string => {
+        return str.toLocaleLowerCase().replace(/\s/g, '');
+    };
+
     const filterSearch = useMemo(() => {
         if (search && region) {
             return countries?.filter(
-                country => country.name.toLowerCase().includes(search.toLowerCase()) && country.region === region,
+                country => normalizeString(country.name).includes(normalizeString(search)) && country.region === region,
             );
         }
         if (region) {
             return countries?.filter(country => country.region === region);
         }
 
-        return countries?.filter(country => country.name.toLowerCase().includes(search.toLowerCase()));
+        return countries?.filter(country => normalizeString(country.name).includes(normalizeString(search)));
     }, [search, countries, region]);
 
     return {
