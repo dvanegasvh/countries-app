@@ -16,7 +16,7 @@ export const formatAllCountries = (countries: CountryResponseApi[]): Country[] =
             capital: country.capital[CountryIndex.FIRST_POSITION],
             currencies: Object.values(country.currencies).map(({ name }) => name),
             top_level: country.tld[CountryIndex.FIRST_POSITION],
-            borders: country.borders,
+            borders: country.borders.slice(0, 3),
             flag: country.flags.svg,
             languages: Object.values(country.languages),
         };

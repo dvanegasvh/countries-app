@@ -25,7 +25,7 @@ class Server {
     }
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`Example app listening on port http://localhost:${this.port}`);
+            console.log(`App listening on port http://localhost:${this.port}`);
         });
     }
     routes() {
