@@ -21,11 +21,15 @@ const Page: React.FC = () => {
             <header className="mb-20">
                 <Button onClick={(): void => router.push(Routes.HOME)}>Back</Button>
             </header>
-            <section className="flex flex-col sm:flex-row justify-between">
-                <img src={countryInformation?.flag} alt="flag-image" className="sm:h-[35rem] sm:w-[50rem] object-cover" />
-                <div className="mt-16 w-full sm:w-[52rem]">
+            <section className="flex flex-col md:flex-col xl:flex-row lg:justify-between gap-x-10 items-center">
+                <img
+                    src={countryInformation?.flag}
+                    alt="flag-image"
+                    className="lg:h-[35rem] lg:w-full xl:h-[35rem] xl:w-[50rem]  object-cover"
+                />
+                <div className="mt-16">
                     <h1 className="text-[30px] font-bold mb-8">{countryInformation?.name}</h1>
-                    <div className="flex flex-col sm:flex-row sm:gap-x-44">
+                    <div className="flex flex-col sm:flex-row sm:gap-x-44 item">
                         <ul className="flex flex-col gap-y-5">
                             <li>
                                 <span className="text-[16px] font-semibold mr-2">Native Name:</span>
