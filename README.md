@@ -52,6 +52,17 @@ Firstly because I find the code cleaner from the frontend, also I can have all t
    cd backend-app
    npm install
    ```
+2. Create .env
+
+   ```sh
+   #root frontend-app
+   API_URL = 'https://countries-api-challenge.fly.dev'
+   ```
+   ```sh
+   #root backend-app
+   APP_PORT = '4000'
+   APP_API_URL = 'https://restcountries.com/v3.1'
+   ```
 
 2. Run local project
 
